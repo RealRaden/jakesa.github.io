@@ -205,7 +205,8 @@ function buyHandler(e) {
     const productName = this.getAttribute('data-product') || 'produk';
     
     if (this.classList.contains('btn-manual')) {
-        const waNumber = '6285709447978';
+        const waNumber = '621234567890';
+        // const waNumber = '6285709447978';
         const waMessage = encodeURIComponent(`Halo, saya ingin memesan ${productName} secara manual.`);
         window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
         return;
