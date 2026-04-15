@@ -271,7 +271,8 @@ document.getElementById('invoiceBtn').addEventListener('click', () => {
 });
 
 const chatBtn = document.getElementById('liveChatBtn');
-const WA_NUMBER = '6285709447978';
+const WA_NUMBER = '621234567890';
+// const WA_NUMBER = '6285709447978';
 const WA_MESSAGE = encodeURIComponent('Halo Kelompok 1, saya tertarik dengan produk premium yang dijual. Ada yang bisa dibantu?');
 chatBtn.addEventListener('click', () => window.open(`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`, '_blank'));
 
