@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>JAKESA - Supplier Apps & Voucher Premium</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand-section">
+                <div class="logo">
+                    <img src="images/logojakesablue.png " alt="Logo" style="height: 40px; width: auto;">
+                    <h1>JAKESA</h1>
+                </div>
+                <div class="theme-toggles">
+                    <button class="theme-btn" id="lightModeBtn">Light</button>
+                    <span style="color: var(--text-muted);">·</span>
+                    <button class="theme-btn" id="darkModeBtn">Dark</button>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-none" id="liveHome"> Home</button>
+                <button class="btn-outline" id="invoiceBtn"><i class="fas fa-file-invoice"></i> Cek Invoice</button>
+                <button class="btn-primary" id="liveChatBtn"><i class="fab fa-whatsapp"></i> Live Chat</button>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="hero-tagline">
+                <i class="fas fa-bolt" style="margin-right: 8px;"></i> Menjual Akun Netflix, Spotify Premium, Game & Voucher Murah.
+            </div>
+        </div>
+
+        <div class="categories">
+            <div class="cat-item active" data-category="stream">Stream</div>
+            <div class="cat-item" data-category="apps">Apps</div>
+            <div class="cat-item" data-category="voucher">Voucher</div>
+        </div>
+
+        <div>
+            <h2 class="section-title">Produk Tersedia</h2>
+            <div id="productsContainer" class="products-grid"></div>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                <div class="feature-title">Bantuan Pelanggan</div>
+                <div class="feature-desc">Layanan dan bantuan 24/7 via live chat & WhatsApp</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+                <div class="feature-title">Metode Pembayaran</div>
+                <div class="feature-desc">Pembayaran Mudah dan Cepat: QRIS, Bank, E-Wallet</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-title">Garansi Layanan</div>
+                <div class="feature-desc">Garansi Produk dan Layanan Terbaik, refund garansi 100%</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-logo">JAKESA</div>
+            <div class="footer-desc">
+                Supplier Apps Premium, Top Up Instant Game & Voucher termurah, terpercaya, dan aman legal 100% open 24 jam dengan payment terlengkap Indonesia
+            </div>
+            <div class="copyright">
+                Copyright © 2026 JAKESA - All Rights Reserved.
+            </div>
+        </div>
+    </div>
+
+    <div id="toastMsg" class="toast-msg"></div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
