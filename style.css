@@ -492,3 +492,92 @@ body.dark {
     pointer-events: none;
     box-shadow: var(--shadow-lg);
 }
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.popup-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup Content */
+.popup-content {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    max-width: 400px;
+    width: 90%;
+    border-radius: 32px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-card);
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Tombol close (X) */
+.popup-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: 0.2s;
+}
+
+.popup-close:hover {
+    color: var(--accent);
+}
+
+/* Icon */
+.popup-icon {
+    margin-bottom: 1rem;
+}
+
+/* Tombol aksi */
+.popup-action-btn {
+    background: var(--accent);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: 0.2s;
+}
+
+.popup-action-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}

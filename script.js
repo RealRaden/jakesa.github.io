@@ -12,22 +12,44 @@ const productsData = [
         badge: '<span class="stock-badge">Stok: 3</span>',
         desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
         price: "Rp 35.000",
-        btnClass: "",
-        btnIcon: '<i class="fas fa-shopping-cart"></i>',
-        btnText: "Beli Sekarang",
+        btnClass: "btn-manual",
+        btnIcon: '<i class="fas fa-envelope"></i>',
+        btnText: "Pesan Manual",
         dataProduct: "Spotify Premium"
     },
+    // {
+    //     iconHtml: `<img src="images/logospotify.png" alt="Spotify Logo" class="custom-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><i class="fab fa-spotify" style="display: none; font-size: 2.2rem;"></i>`,
+    //     name: "SPOTIFY PREMIUM",
+    //     badge: '<span class="stock-badge">Stok: 3</span>',
+    //     desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
+    //     price: "Rp 35.000",
+    //     btnClass: "",
+    //     btnIcon: '<i class="fas fa-shopping-cart"></i>',
+    //     btnText: "Beli Sekarang",
+    //     dataProduct: "Spotify Premium"
+    // },
     {
         iconHtml: `<img src="images/logoyoutube.png" alt="YouTube Logo" class="custom-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><i class="fab fa-youtube" style="display: none; font-size: 2.2rem;"></i>`,
         name: "YOUTUBE PREMIUM",
         badge: '<span class="stock-badge">Stok: 14</span>',
         desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
         price: "Rp 9.000",
-        btnClass: "",
-        btnIcon: '<i class="fas fa-shopping-cart"></i>',
-        btnText: "Beli Sekarang",
+        btnClass: "btn-manual",
+        btnIcon: '<i class="fas fa-envelope"></i>',
+        btnText: "Pesan Manual",
         dataProduct: "YouTube Premium"
     },
+    // {
+    //     iconHtml: `<img src="images/logoyoutube.png" alt="YouTube Logo" class="custom-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><i class="fab fa-youtube" style="display: none; font-size: 2.2rem;"></i>`,
+    //     name: "YOUTUBE PREMIUM",
+    //     badge: '<span class="stock-badge">Stok: 14</span>',
+    //     desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
+    //     price: "Rp 9.000",
+    //     btnClass: "",
+    //     btnIcon: '<i class="fas fa-shopping-cart"></i>',
+    //     btnText: "Beli Sekarang",
+    //     dataProduct: "YouTube Premium"
+    // },
     {
         iconHtml: `<img src="images/logonetflix.png" alt="Netflix Logo" class="custom-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><i class="fas fa-tv" style="display: none; font-size: 2.2rem;"></i>`,
         name: "NETFLIX SHARING",
@@ -49,11 +71,22 @@ const appsProducts = [
         badge: '<span class="stock-badge">Stok: 5</span>',
         desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
         price: "Rp 10.000",
-        btnClass: "",
-        btnIcon: '<i class="fas fa-shopping-cart"></i>',
-        btnText: "Beli Sekarang",
+        btnClass: "btn-manual",
+        btnIcon: '<i class="fas fa-envelope"></i>',
+        btnText: "Pesan Manual",
         dataProduct: "Canva PRO"
-    }
+    },
+    // {
+    //     iconHtml: `<img src="images/logocanva.png" alt="Canva Logo" class="custom-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"><i class="fas fa-paintbrush" style="display: none; font-size: 2.2rem;"></i>`,
+    //     name: "CANVA PRO",
+    //     badge: '<span class="stock-badge">Stok: 5</span>',
+    //     desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
+    //     price: "Rp 10.000",
+    //     btnClass: "",
+    //     btnIcon: '<i class="fas fa-shopping-cart"></i>',
+    //     btnText: "Beli Sekarang",
+    //     dataProduct: "Canva PRO"
+    // },
 ];
 
 // Data produk untuk kategori Voucher
@@ -170,11 +203,22 @@ function attachBuyEvents() {
 function buyHandler(e) {
     e.stopPropagation();
     const productName = this.getAttribute('data-product') || 'produk';
+    
     if (this.classList.contains('btn-manual')) {
-        showMessage(`📞 Produk ${productName} memerlukan order manual. Silakan hubungi Live Chat!`);
-    } else {
-        showMessage(`✅ ${productName} ditambahkan ke keranjang demo. Pengiriman instan 1 detik! (Simulasi)`);
+        const waNumber = '6285709447978';
+        const waMessage = encodeURIComponent(`Halo, saya ingin memesan ${productName} secara manual.`);
+        window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
+        return;
     }
+    
+    // Untuk produk biasa: redirect ke checkout
+    let productPrice = "";
+    const card = this.closest('.product-card');
+    if (card) {
+        const priceElem = card.querySelector('.price');
+        if (priceElem) productPrice = priceElem.innerText;
+    }
+    window.location.href = `checkout.html?product=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}`;
 }
 
 function filterCategory(category) {
@@ -256,5 +300,33 @@ catItems.forEach(cat => {
     });
 });
 
+
+
 // Render default (Stream)
 renderProducts(productsData);
+
+// ========== POPUP NOTIFIKASI (muncul setiap kali buka web) ==========
+const popup = document.getElementById('welcomePopup');
+const closePopupBtn = document.getElementById('closePopupBtn');
+const popupCloseAction = document.getElementById('popupCloseBtn');
+
+if (popup) {
+    // Langsung tampilkan popup setiap kali halaman dimuat
+    popup.classList.add('show');
+    
+    // Fungsi untuk menutup popup (tanpa menyimpan status)
+    function closePopup() {
+        popup.classList.remove('show');
+    }
+    
+    // Event listener untuk tombol close (X) dan tombol "Mulai Belanja"
+    if (closePopupBtn) closePopupBtn.addEventListener('click', closePopup);
+    if (popupCloseAction) popupCloseAction.addEventListener('click', closePopup);
+    
+    // Opsional: klik di luar popup juga bisa menutup
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+}
