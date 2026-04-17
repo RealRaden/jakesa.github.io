@@ -205,8 +205,8 @@ function buyHandler(e) {
     const productName = this.getAttribute('data-product') || 'produk';
     
     if (this.classList.contains('btn-manual')) {
-        const waNumber = '621234567890';
-        // const waNumber = '6285709447978';
+        // const waNumber = '621234567890'; 
+        const waNumber = '6285709447978'; // WA Ricardo
         const waMessage = encodeURIComponent(`Halo, saya ingin memesan ${productName} secara manual.`);
         window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
         return;
@@ -272,8 +272,8 @@ document.getElementById('invoiceBtn').addEventListener('click', () => {
 });
 
 const chatBtn = document.getElementById('liveChatBtn');
-const WA_NUMBER = '621234567890';
-// const WA_NUMBER = '6285709447978';
+// const WA_NUMBER = '621234567890';
+const WA_NUMBER = '6285709447978'; //WA Ricardo
 const WA_MESSAGE = encodeURIComponent('Halo JAKESA, saya tertarik dengan produk premium yang dijual. Ada yang bisa dibantu?');
 chatBtn.addEventListener('click', () => window.open(`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`, '_blank'));
 
