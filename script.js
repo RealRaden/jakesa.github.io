@@ -33,7 +33,7 @@ const productsData = [
         name: "YOUTUBE PREMIUM",
         badge: '<span class="stock-badge">Stok: 14</span>',
         desc: '<i class="fas fa-check-circle" style="color: #1ed760;"></i> Akun Premium 1 Bulan',
-        price: "Rp 9.000",
+        price: "Rp 10.000",
         btnClass: "btn-manual",
         btnIcon: '<i class="fas fa-envelope"></i>',
         btnText: "Pesan Manual",
