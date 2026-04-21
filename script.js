@@ -2,7 +2,7 @@
 // Set ke true jika ingin menampilkan notifikasi saat klik kategori
 let enableCategoryPopup = false;  // Ubah ke true untuk menyalakan popup
 let showApps = true;              // Ubah ke false untuk menyembunyikan produk Apps (Canva Pro)
-let showVoucher = false;          // Ubah ke true untuk menampilkan produk Voucher
+let showVoucher = true;          // Ubah ke true untuk menampilkan produk Voucher
 
 // Data produk untuk kategori Stream
 const productsData = [
